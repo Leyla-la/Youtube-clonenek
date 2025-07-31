@@ -67,7 +67,7 @@ export const PlaylistCreateModal = ({
                         name="name"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Prompt</FormLabel>
+                                <FormLabel>Playlist's name</FormLabel>
                                 <FormControl>
                                     <Input
                                         {...field} placeholder="Eg: My favourite videos" />

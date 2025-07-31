@@ -1,5 +1,4 @@
 import { HistoryVideosSection } from "../sections/history-videos-section";
-import { TrendingVideosSection } from "../sections/trending-videos-section";
 
 export const HistoryView = () => {
     return (

@@ -19,20 +19,20 @@ export const HistoryVideosSection = () => {
 };
 
 const HistoryVideosSectionSkeleton = () => {
-     return (
+    return (
         <div>
             <div className="flex flex-col gap-4 gap-y-10 md:hidden">
-                {Array.from({length: 18 })
+                {Array.from({ length: 18 })
                     .map((_, index) => (
                         <VideoGridCardSkeleton key={index} />
                     ))
                 }
             </div>
 
-             <div className="hidden md:flex flex-col gap-4">
-                {Array.from({length: 18 })
+            <div className="hidden md:flex flex-col gap-4">
+                {Array.from({ length: 18 })
                     .map((_, index) => (
-                        <VideoRowCardSkeleton key={index} size="compact"/>
+                        <VideoRowCardSkeleton key={index} size="compact" />
                     ))
                 }
             </div>
@@ -63,15 +63,15 @@ const HistoryVideosSectionSuspense = () => {
                 {videos.pages
                     .flatMap((page) => page.items)
                     .map((video) => (
-                        <VideoRowCard key={video.id} data={video} size="compact"/>
+                        <VideoRowCard key={video.id} data={video} size="compact" />
                     ))
                 }
             </div>
 
-            <InfiniteScroll 
-            hasNextPage={query.hasNextPage} 
-            isFetchingNextPage={query.isFetchingNextPage} 
-            fetchNextPage={query.fetchNextPage}
+            <InfiniteScroll
+                hasNextPage={query.hasNextPage}
+                isFetchingNextPage={query.isFetchingNextPage}
+                fetchNextPage={query.fetchNextPage}
 
             />
         </div>
