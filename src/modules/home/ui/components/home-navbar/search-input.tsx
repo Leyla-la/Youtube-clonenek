@@ -27,6 +27,7 @@ export const SearchInput = () => {
         if (categoryId) {
             url.searchParams.set("categoryId", categoryId);
         }
+        
         if (newQuery === "") {
             url.searchParams.delete("query");
         }
