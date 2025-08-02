@@ -33,7 +33,6 @@ export const ThumbnailGenerateModal = ({
         }
     });
 
-    const utils = trpc.useUtils();
 
     const generateThumbnail = trpc.videos.generateThumbnail.useMutation({
         onSuccess: () => {  // 'data' is the response (e.g., workflowRunId from procedures.ts)

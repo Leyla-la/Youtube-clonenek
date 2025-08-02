@@ -1,4 +1,4 @@
-import z, { string } from "zod";
+import z from "zod";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { useClerk, useUser } from "@clerk/nextjs";
@@ -10,6 +10,8 @@ import { UserAvatar } from "@/components/user-avatar";
 import { trpc } from "@/trpc/client";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 
+
+type CommentFormInput = z.infer<typeof commentInsertSchema>;
 interface CommentFormProps {
     videoId: string;
     parentId?: string;
@@ -49,17 +51,24 @@ export const CommentForm = ({
         }
     });
 
-    const form = useForm<z.infer<typeof commentInsertSchema>>({
-        resolver: zodResolver(commentInsertSchema.omit({ userId: true })),
+    const form = useForm<CommentFormInput>({
+        resolver: zodResolver(commentInsertSchema),
         defaultValues: {
             parentId: parentId,
             videoId: videoId,
             value: "",
+            userId: user?.id ?? "",
         },
     });
-
-    const handleSubmit = (values: z.infer<typeof commentInsertSchema>) => {
-        create.mutate(values);
+    const handleSubmit = (values: CommentFormInput) => {
+        if (!user?.id) {
+            toast.error("You must be signed in to comment.");
+            clerk.openSignIn();
+            return;
+        }
+        create.mutate({
+            ...values
+        });
     };
 
 

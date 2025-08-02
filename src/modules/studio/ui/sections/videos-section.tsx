@@ -4,11 +4,9 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { format } from "date-fns";
 import { ErrorBoundary } from "react-error-boundary";
-import { useRouter } from "next/navigation";
 import { DEFAULT_LIMIT } from "@/constants";
 import { trpc } from "@/trpc/client";
 import { InfiniteScroll } from "@/components/infinite-scroll";
-import { Query } from "@neondatabase/serverless";
 import {
     Table,
     TableBody,
@@ -118,7 +116,7 @@ const VideosSectionSuspense = () => {
 
                     <TableBody>
                         {videos.pages.flatMap((page) => page.items).map((video) => (
-                            <Link href={`/studio/videos/${video.id}`} key={video.id} legacyBehavior>
+                            <Link prefetch href={`/studio/videos/${video.id}`} key={video.id} legacyBehavior>
                                 <TableRow className="cursor-pointer">
                                     <TableCell className="pl-6">
                                         <div className="flex items-center gap-4">

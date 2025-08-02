@@ -2,7 +2,7 @@ import z from "zod";
 import { ResponsiveModal } from "@/modules/studio/ui/components/responsive-dialog";
 import { trpc } from "@/trpc/client";
 import { DEFAULT_LIMIT } from "@/constants";
-import { Loader2Icon, Square, SquareCheckIcon, SquareIcon } from "lucide-react";
+import { Loader2Icon, SquareCheckIcon, SquareIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InfiniteScroll } from "@/components/infinite-scroll";
 import { toast } from "sonner";

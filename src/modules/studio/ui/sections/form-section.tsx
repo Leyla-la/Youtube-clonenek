@@ -14,7 +14,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
-import { CopyCheckIcon, CopyIcon, Globe2Icon, ImagePlusIcon, Loader2Icon, LockIcon, MoreVerticalIcon, RotateCcw, RotateCcwIcon, SparkleIcon, SparklesIcon, TrashIcon } from "lucide-react";
+import { CopyCheckIcon, CopyIcon, Globe2Icon, ImagePlusIcon, Loader2Icon, LockIcon, MoreVerticalIcon, RotateCcwIcon, SparkleIcon, SparklesIcon, TrashIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -409,7 +409,7 @@ const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
                                                 Video link
                                             </p>
                                             <div className="flex items-center gap-x-2">
-                                                <Link href={`/videos/${video.id}`}>
+                                                <Link prefetch href={`/videos/${video.id}`}>
                                                     <p className="line-clamp-1 text-sm text-blue-500">
                                                         {fullUrl}
                                                     </p>

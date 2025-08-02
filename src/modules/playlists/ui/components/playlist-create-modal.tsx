@@ -41,12 +41,7 @@ export const PlaylistCreateModal = ({
             toast.success("Playlist created");  
         },
         onError: (error) => {
-            console.error('Mutation error:', {
-                message: error.message,
-                code: error.shape?.code,  // e.g., 'INTERNAL_SERVER_ERROR'
-                data: error.shape?.data,
-            });
-            toast.error(error.message || "Something went wrong");  // Show specific error message
+            toast.error(error.message || "Something went wrong"); 
         }
     });
 
@@ -67,7 +62,7 @@ export const PlaylistCreateModal = ({
                         name="name"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Playlist's name</FormLabel>
+                                <FormLabel>Playlist&apos;s name</FormLabel>
                                 <FormControl>
                                     <Input
                                         {...field} placeholder="Eg: My favourite videos" />

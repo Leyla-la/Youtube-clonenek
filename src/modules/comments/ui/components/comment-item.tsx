@@ -26,8 +26,8 @@ export const CommentItem = ({
     const clerk = useClerk();
     const utils = trpc.useUtils();
 
-    const [isReplyOpen, setIsReplyOpen] = useState();
-    const [isRepliesOpen, setIsRepliesOpen] = useState();
+    const [isReplyOpen, setIsReplyOpen] = useState(false);
+    const [isRepliesOpen, setIsRepliesOpen] = useState<boolean>(false);
 
     const remove = trpc.comments.remove.useMutation({
         onSuccess: () => {
@@ -73,14 +73,14 @@ export const CommentItem = ({
     return (
         <div>
             <div className="flex gap-4">
-                <Link href={`/users/${comment.userId}`}>
+                <Link prefetch href={`/users/${comment.userId}`}>
                     <UserAvatar
                         size={variant === "comment" ? "lg" : "sm"}
                         imageUrl={comment.user.imageUrl}
                         name={comment.user.name} />
                 </Link>
                 <div className="flex-1 min-w-0">
-                    <Link href={`/users/${comment.userId}`}>
+                    <Link prefetch href={`/users/${comment.userId}`}>
                         <div className="flex items-center gap-2 mb-0.5">
                             <span className="font-medium text-sm pb-0.5">
                                 {comment.user.name}

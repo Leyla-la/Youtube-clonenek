@@ -1,10 +1,10 @@
-import { eq, getTableColumns, inArray, isNotNull, lt, or, sql } from "drizzle-orm";
+import { eq, getTableColumns, inArray, sql } from "drizzle-orm";
 
 import { db } from "@/db";
 import { subscriptions, users, videos } from "@/db/schema";
 import { baseProcedure, createTRPCRouter } from "@/trpc/init";
 import { TRPCError } from "@trpc/server";
-import z, { boolean } from "zod";
+import z from "zod";
 
 export const usersRouter = createTRPCRouter({
 

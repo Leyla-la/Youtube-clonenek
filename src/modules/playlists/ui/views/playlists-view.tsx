@@ -19,9 +19,9 @@ export const PlaylistsView = () => {
             />
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-2xl font-bold">History</h1>
+                    <h1 className="text-2xl font-bold">Playlists</h1>
                     <p className="text-xs text-muted-foreground">
-                        playlists you have created
+                        Playlists you have created
                     </p>
                 </div>
                 <Button

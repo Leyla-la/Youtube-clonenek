@@ -4,7 +4,7 @@ import { useAuth, useClerk } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { SubscriptionButton } from "@/modules/subscriptions/ui/components/subscription-button";
-import { useSubscription } from "@/modules/subscriptions/hooks/subscriptions";
+import { useSubscription } from "@/modules/subscriptions/hooks/use-subscriptions";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -86,7 +86,7 @@ export const UserPageInfo = ({ user }: UserPageInfoProps) => {
                         className="w-full mt-3 rounded-full"
                         asChild
                     >
-                        <Link href="/studio">Go to studio</Link>
+                        <Link prefetch href="/studio">Go to studio</Link>
                     </Button>
                 ) : (
                     <SubscriptionButton
@@ -130,7 +130,7 @@ export const UserPageInfo = ({ user }: UserPageInfoProps) => {
                             className="mt-3 rounded-full"
                             asChild
                         >
-                            <Link href="/studio">Go to studio</Link>
+                            <Link prefetch href="/studio">Go to studio</Link>
                         </Button>
                     ) : (
                         <SubscriptionButton

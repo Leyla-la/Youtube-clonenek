@@ -7,7 +7,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
 import { trpc } from "@/trpc/client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface PlaylistHeaderSectionProps {
     playlistId: string;
