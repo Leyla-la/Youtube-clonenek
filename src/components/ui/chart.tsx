@@ -2,6 +2,10 @@
 
 // import * as React from "react"
 // import * as RechartsPrimitive from "recharts"
+// import {
+//   NameType,
+//   ValueType,
+// } from "recharts/types/component/DefaultTooltipContent"
 
 // import { cn } from "@/lib/utils"
 
@@ -102,16 +106,33 @@
 
 // const ChartTooltip = RechartsPrimitive.Tooltip
 
+// // Fixed type definition to properly include all necessary properties
+// type ChartTooltipContentProps = {
+//   active?: boolean
+//   payload?: Array<{
+//     color?: string
+//     dataKey?: string | number
+//     name?: string | number
+//     value?: ValueType
+//     payload?: any
+//     [key: string]: any
+//   }>
+//   label?: string
+//   labelFormatter?: (label: any, payload: any) => React.ReactNode
+//   formatter?: (value: any, name: any, props: any, index: number, payload: any) => React.ReactNode
+// } & React.ComponentProps<"div"> & {
+//   hideLabel?: boolean
+//   hideIndicator?: boolean
+//   indicator?: "line" | "dot" | "dashed"
+//   nameKey?: string
+//   labelKey?: string
+//   color?: string
+//   labelClassName?: string
+// }
+
 // const ChartTooltipContent = React.forwardRef<
 //   HTMLDivElement,
-//   React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-//     React.ComponentProps<"div"> & {
-//       hideLabel?: boolean
-//       hideIndicator?: boolean
-//       indicator?: "line" | "dot" | "dashed"
-//       nameKey?: string
-//       labelKey?: string
-//     }
+//   ChartTooltipContentProps
 // >(
 //   (
 //     {
@@ -188,7 +209,7 @@
 //           {payload.map((item, index) => {
 //             const key = `${nameKey || item.name || item.dataKey || "value"}`
 //             const itemConfig = getPayloadConfigFromPayload(config, item, key)
-//             const indicatorColor = color || item.payload.fill || item.color
+//             const indicatorColor = color || item.payload?.fill || item.color
 
 //             return (
 //               <div
@@ -355,11 +376,3 @@
 //     : config[key as keyof typeof config]
 // }
 
-// export {
-//   ChartContainer,
-//   ChartTooltip,
-//   ChartTooltipContent,
-//   ChartLegend,
-//   ChartLegendContent,
-//   ChartStyle,
-// }

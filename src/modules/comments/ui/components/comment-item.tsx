@@ -26,8 +26,8 @@ export const CommentItem = ({
     const clerk = useClerk();
     const utils = trpc.useUtils();
 
-    const [isReplyOpen, setIsReplyOpen] = useState(false);
-    const [isRepliesOpen, setIsRepliesOpen] = useState<boolean>(false);
+    const [isReplyOpen, setIsReplyOpen] = useState();
+    const [isRepliesOpen, setIsRepliesOpen] = useState();
 
     const remove = trpc.comments.remove.useMutation({
         onSuccess: () => {
