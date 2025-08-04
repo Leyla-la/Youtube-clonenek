@@ -1,6 +1,6 @@
 import { studioRouter } from '@/modules/studio/server/procedures';
 import { categoriesRouter } from '@/modules/categories/server/procedures';
-import { createTRPCRouter } from '../init';
+import { Context, createTRPCRouter } from '../init';
 import { videosRouter } from '@/modules/videos/server/procedures';
 import { videoViewsRouter } from '@/modules/video-views/server/procedures';
 import { videoReactionsRouter } from '@/modules/video-reactions/server/procedures';
@@ -11,6 +11,13 @@ import { suggestionsRouter } from '@/modules/suggestions/server/procedures';
 import { searchRouter } from '@/modules/search/server/procedures';
 import { playlistsRouter } from '@/modules/playlists/server/procedures';
 import { usersRouter } from '@/modules/users/server/procedures';
+import superjson from 'superjson';
+import { initTRPC } from '@trpc/server';
+
+const t = initTRPC.context<Context>().create({
+  transformer: superjson,
+});
+
 export const appRouter = createTRPCRouter({
   studio: studioRouter,
   videos: videosRouter,

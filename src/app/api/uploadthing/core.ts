@@ -52,7 +52,7 @@ export const ourFileRouter = {
       await db
         .update(users)
         .set({
-          bannerUrl: file.url,
+          imageUrl: file.url,
           bannerKey: file.key,
         })
         .where(eq(users.id, metadata.userId),

@@ -6,7 +6,7 @@ export const TrendingView = () => {
             <div>
                 <h1 className="text-2xl font-bold">Trending</h1>
                 <p className="text-xs text-muted-foreground">
-                    Most popular videos at the mometn
+                    Most popular videos at the moment
                 </p>
             </div>
             <TrendingVideosSection />
